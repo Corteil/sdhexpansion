@@ -1,0 +1,26 @@
+Drill report for sdhexpansion-panel.kicad_pcb
+Created on 2026-05-30T23:06:50
+
+Copper Layer Stackup:
+    =============================================================
+    L1 :  F.Cu                      front
+    L2 :  B.Cu                      back
+
+
+Drill file 'sdhexpansion-panel-PTH.drl' contains
+    plated through holes:
+    =============================================================
+    T1  0.400mm  0.0157"  (88 holes))
+    T2  0.400mm  0.0157"  (64 holes))
+    T3  1.000mm  0.0394"  (8 holes))
+    T4  2.200mm  0.0866"  (8 holes))
+
+    Total plated holes count 168
+
+
+Drill file 'sdhexpansion-panel-NPTH.drl' contains
+    unplated through holes:
+    =============================================================
+    T1  0.500mm  0.0197"  (104 holes))
+
+    Total unplated holes count 104
