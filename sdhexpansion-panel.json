@@ -1,0 +1,28 @@
+{
+    "layout": {
+        "alternation": "cols",
+        "hspace": "2mm",
+        "vspace": "2mm",
+        "rows": "2",
+        "cols": "2",
+        "vbonecut": "False"
+    },
+    "tabs": {
+        "spacing": "20mm",
+        "fillet": "1mm"
+    },
+    "cuts": {
+        "type": "mousebites",
+        "offset": "-0.25mm",
+        "prolong": "2mm"
+    },
+    "framing": {
+        "type": "frame"
+    },
+    "fiducials": {
+        "type": "3fid",
+        "hoffset": "2.5mm",
+        "voffset": "2.5mm",
+        "opening": "2mm"
+    }
+}
