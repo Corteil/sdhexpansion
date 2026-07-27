@@ -5,11 +5,14 @@ from machine import SDCard
 from system.hexpansion.config import HexpansionConfig
 from system.eventbus import eventbus
 from system.launcher.app import InstallNotificationEvent
+from system.launcher.app import AppDirAddedNotificationEvent, AppDirRemovedNotificationEvent
 from app_components import Menu, Notification, clear_background
 from system.scheduler.events import RequestForegroundPushEvent
 
 # default location to mount the main flash device
 MOUNTPATH = "/sdcard"
+APPDIR = "/sdcard_apps"
+
 # menu item text for three options
 main_menu_items = ["Mount", "Remove", "Format"]
 
@@ -49,6 +52,7 @@ class SDHexpApp(app.App):
             vfs.umount(MOUNTPATH)
             if MOUNTPATH in sys.path:
                 del sys.path[sys.path.index(MOUNTPATH)]
+            eventbus.emit(AppDirRemovedNotificationEvent(MOUNTPATH+APPDIR))
             self.mounted = False
         self.sd.deinit()
 
@@ -59,14 +63,11 @@ class SDHexpApp(app.App):
                 # mounts the device at the default location
                 vfs.mount(self.sd, MOUNTPATH)
                 sys.path.append(MOUNTPATH)
-                eventbus.emit(InstallNotificationEvent())
+                eventbus.emit(AppDirAddedNotificationEvent(MOUNTPATH+APPDIR))
                 self.mounted = True
             elif item == "Remove":
                 # unmounts (safely removes) the storage
-                vfs.umount(MOUNTPATH)
-                # triggers a refresh of the launcher to remove apps
-                eventbus.emit(InstallNotificationEvent())
-                self.mounted = False
+                self.deinit()
             elif item == "Format":
                 # Format the drive as FAT
                 vfs.VfsFat.mkfs(self.sd)

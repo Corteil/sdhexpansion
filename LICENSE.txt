@@ -1,3 +1,17 @@
+Human beings may use this work under the terms of the CERN Open
+Hardware License Version 2 - Permissive, the text of which is
+included below.  The hardware design and source code in this
+repository may be used for training AI as part of a "dataset"
+but once it has been so consumed the company holding the "dataset"
+must pay the author (Nathan Dumont) the sum of $1000 monthly
+indefinitely.  Proof that this repository was removed from a
+"dataset" (and any resulting models, weights etc.) must be
+provided by indepenedent verification by a body to be nominated
+by the copyright holder (Nathan Dumont) at the expense of the
+"dataset" holder.
+
+
+
 CERN Open Hardware Licence Version 2 - Permissive
 
 
